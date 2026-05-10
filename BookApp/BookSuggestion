@@ -1,0 +1,236 @@
+import java.util.Scanner;
+import java.util.ArrayList;
+
+public class BookSuggestion{
+
+    public static void main(String [] args){
+
+    Scanner obtain = new Scanner (System.in);
+
+    ArrayList < String > bookTitle = new ArrayList<>();
+    ArrayList < Integer > pages = new ArrayList<>();
+    ArrayList < String > author = new ArrayList<>();
+
+    bookTitle.add("THE HOBBIT");
+    pages.add (47);
+    author.add("MR CHIBUZOR AKA (I_AM)");
+                    
+    bookTitle.add("THE MYSTERY");
+    pages.add (12);
+    author.add("EOB");
+                                        
+while(true){
+int count =0;
+String bookMenu =("""
+    
+                WELCOME TO THE BOOK SUGGESTION SYSTEM!
+
+                        1. Get Suggestions
+
+                        2. Add Book
+
+                        3. Remove Book 
+
+                        4. Update Book
+
+                        5. Show Books 
+
+                        6. Exit
+                            """);
+
+System.out.print(bookMenu);
+
+System.out.print("\nKINDLY, ENTER THE BOOK OPTION BY NUMBER: ");
+int bookOption = obtain.nextInt();
+obtain.nextLine();
+
+switch(bookOption){
+
+    case 1->{
+            while(true){
+                 
+                System.out.print("\nSUGGESTION LIST\n");
+
+
+                System.out.printf("\nBook For The Day\nBook Title: %s\nPages: %d\nAuthor's Name: %s\n",bookTitle.get(count), pages.get(count), author.get(count));
+                    count++;
+                    
+              System.out.print("\nWould Your Like To Get Another Suggestion? Yes/No: ");
+              String suggestResponse = obtain.nextLine();
+               
+              if(suggestResponse.equalsIgnoreCase("No")){
+                System.out.print("\nThanks For Visiting. Trust You Enjoyed Your Time With Us.");
+                    break;
+   }
+
+
+        if (count >= bookTitle.size()){
+                System.out.print("\nThere's No More Book To Suggest! \n\nWould You Like To Add Other Book To The Suggestion System App? Yes/No ");
+                    String addMoreBooksResponse = obtain.nextLine();
+                    if(addMoreBooksResponse.equalsIgnoreCase("Yes")){
+                            break;
+                    } else if(addMoreBooksResponse.equalsIgnoreCase("No")){
+                            break;}
+
+            }
+    
+       }
+
+
+}
+     
+
+
+    case 2->{
+             while(true){
+                System.out.print("\nADD BOOK\n");
+
+                System.out.print("\nKindly,Add The Book Title Of Your Chioce: ");
+                bookTitle.add(obtain.nextLine());
+
+                System.out.print("\nKindly,Add The Number Of Pages Of The Book: ");
+                pages.add(obtain.nextInt());
+                    obtain.nextLine();
+
+                System.out.print("\nKindly,Add The Author's Name: ");
+                author.add(obtain.nextLine());
+            
+                System.out.print("\nWould You Like To Add More Books? Yes/No: ");
+                String moreBookResponse = obtain.nextLine();
+                    count++;
+                if(moreBookResponse.equalsIgnoreCase("No")){-
+                  System.out.printf("\nThank You For Using Our Suggestion System App\n%d Books Were Added Successfully!\n",count);
+                    break;}
+
+
+        }
+    
+ }
+   
+
+    case 3->{
+              while(true){
+                int seen=-1;
+                System.out.print("\nREMOVE BOOK\n");
+            
+            System.out.print("\nENTER THE TITLE OF THE BOOK TO REMOVE: \n");
+            String bookToRemove = obtain.nextLine().toUpperCase();
+            
+
+            for(int index=0; index < bookTitle.size(); index++){
+            if(bookTitle.get(index).equalsIgnoreCase(bookToRemove)){
+                seen=index;
+                }
+            if(seen != -1){   
+                
+                bookTitle.remove(bookTitle.get(seen));
+                pages.remove(pages.get(seen));
+                author.remove(author.get(seen));
+                
+                System.out.printf("Book Has Been Removed Successfully!\n");           
+                    }else {     
+                 System.out.printf("Book not found!\n");
+                    
+}
+                System.out.print("\nWould You Like To Remove More Books?Yes/No: \n");
+                String removeResponse = obtain.nextLine();
+                
+                if(removeResponse.equalsIgnoreCase("No")){
+                    System.out.print("\nThank You For Using The App!");
+                               
+                    } 
+                    if(bookTitle.isEmpty()){
+                    System.out.print("\nThe Book Suggestion System  App Is Empty");
+                    break;
+                  }
+                       
+}
+                break;
+    }
+    
+}
+
+
+    case 4->{
+               while(true){
+                int seen=-1;
+                System.out.print("\nUPDATE BOOK\n");
+            
+            System.out.print("\nENTER THE TITLE OF THE BOOK TO Update: \n");
+            String bookToUpdate = obtain.nextLine().toUpperCase();
+            
+            System.out.print("\nENTER THE NNUMBER OF PAGES: \n");
+            int numberOfPages = obtain.nextInt();
+                obtain.nextLine();
+
+            System.out.print("\nENTER THE AUTHOR'S NAME: \n");
+            String authorsName = obtain.nextLine().toUpperCase();
+
+            for(int index=0; index < bookTitle.size(); index++){
+
+            if(bookTitle.get(index).equalsIgnoreCase(bookToUpdate)){
+                seen=index;
+            }
+}
+            if(seen != -1){   
+                
+                bookTitle.set(seen, bookToUpdate);
+                pages.set(seen, numberOfPages);
+                author.set(seen, authorsName);
+                
+                System.out.printf("Your Book Has Been Updated Successfully!\n");           
+                    }else {     
+                 System.out.printf("Book not found!\n");
+                    
+}
+                System.out.print("\nWould You Like To Update More Books?Yes/No: \n");
+                String updateResponse = obtain.nextLine();
+                
+                if(updateResponse.equalsIgnoreCase("No")){
+                    System.out.print("\nThank You For Using The App!");
+                      break;          
+                    } 
+                  
+
+
+         }
+
+}
+
+
+    case 5-> {
+                int index = 0;
+                System.out.print("LIST OF BOOKS");
+                
+                System.out.println();
+            for( index = 0; index < bookTitle.size(); index++){
+
+                
+                System.out.printf("\n%s\n",bookTitle.get(index));
+
+                System.out.printf("%d\n",pages.get(index));
+            
+                System.out.printf("%s\n",author.get(index));
+
+                }
+
+           }
+
+    case 6->{
+                System.out.print("\nEXIT\n");
+
+                System.out.print("\nTHANK YOU FOR USING OUR APP!\n\n");
+            
+                System.exit(0);
+
+}
+
+    default->{
+                System.out.print("Choose Between 1 - 6");
+                
+                }
+
+         }
+       } 
+    }
+}
