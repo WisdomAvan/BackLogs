@@ -5,12 +5,12 @@ import java.time.LocalDate;
 
 public class InvoiceLineItem {
     private Long lineItemId;
-    private Invoice invoice;          // FK → Invoice
-    private String description;       // "Room Charge", "Room Service", "Minibar", etc.
-    private LineItemType itemType;    // ROOM_CHARGE, SERVICE, FOOD, EXTRA, TAX, DISCOUNT
+    private Invoice invoice;
+    private String description;
+    private LineItemType itemType;
     private int quantity;
     private BigDecimal unitPrice;
-    private BigDecimal totalPrice;    // quantity * unitPrice
+    private BigDecimal totalPrice;
     private LocalDate serviceDate;
 
     public Long getLineItemId() {

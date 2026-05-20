@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 public class RoomType {
     private Long roomTypeId;
-    private String roomType;             // SINGLE, DOUBLE, SUITE, DELUXE
+    private String roomType;
     private String description;
     private int maxiOccupancy;
     private BigDecimal basePricePerNight;

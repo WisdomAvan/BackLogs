@@ -4,11 +4,11 @@ import java.time.LocalDateTime;
 
 public class CheckIn {
     private Long checkInId;
-    private Reservation reservation;  // FK → Reservation
-    private Customer customer;              // FK → Guest
-    private Room room;                // FK → Room
+    private Reservation reservation;
+    private Customer customer;
+    private Room room;
     private LocalDateTime actualCheckInDatetime;
-    private Staff processedBy;        // FK → Staff
+    private Staff processedBy;
     private boolean idVerified;
     private String notes;
 

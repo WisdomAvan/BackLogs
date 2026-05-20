@@ -5,14 +5,14 @@ import java.time.LocalDateTime;
 
 public class Payment {
     private Long paymentId;
-    private Invoice invoice;          // FK → Invoice
-    private Customer customer;              // FK → Guest
+    private Invoice invoice;
+    private Customer customer;
     private BigDecimal amount;
-    private PaymentMethod paymentMethod; // CASH, CARD, BANK_TRANSFER, ONLINE
+    private PaymentMethod paymentMethod;
     private String transactionRef;
     private LocalDateTime paymentDatetime;
-    private PaymentStatus status;     // SUCCESS, FAILED, REFUNDED, PENDING
-    private Staff processedBy;        // FK → Staff
+    private PaymentStatus status;
+    private Staff processedBy;
 
     public Long getPaymentId() {
         return paymentId;
